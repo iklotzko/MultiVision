@@ -35,6 +35,7 @@ if (env === 'development') {
     mongoose.connect('mongodb://iklotzko:ira123@ds063150.mongolab.com:63150/multivision');
 }
 var db = mongoose.connection;
+
 db.on('error', console.error.bind(console, 'connection error...'));
 db.on('error', function() {
     console.log('errorrrr', arguments);
@@ -45,8 +46,8 @@ db.once('open', function callback() {
 var messageSchema = mongoose.Schema({
     message: String
 });
-var Message = mongoose.model('Message', messageSchema)
-var mongoMessage;
+var Message = mongoose.model('Message', messageSchema);
+var mongoMessage = null;
 Message.findOne().exec(function(err, messageDoc) {
     mongoMessage = messageDoc.message;
 });
