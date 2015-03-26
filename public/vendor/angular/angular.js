@@ -2699,6 +2699,7 @@ function jqLiteAddNodes(root, elements) {
 
 
 function jqLiteController(element, name) {
+    aaclog
   return jqLiteInheritedData(element, '$' + (name || 'ngController') + 'Controller');
 }
 
